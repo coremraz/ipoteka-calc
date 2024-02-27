@@ -1,0 +1,179 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Manrope", sans-serif;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    width: 31vw;
+}
+
+ul {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+li {
+    list-style-type: none;
+    margin-bottom: 5px;
+    font-size: 0.55vw;
+}
+
+.main-section {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    width: 31vw;
+}
+
+.logo-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4.3vw;
+    width: 31vw;
+    background-color: #B11D41;
+}
+
+.logo {
+    width: 9.5vw;
+}
+
+.advantages-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 31vw;
+}
+
+.advantage {
+    text-transform: uppercase;
+    margin: 1vw 0.5vw 1vw 0.5vw;
+    font-weight: 600;
+}
+
+.advantage-h2 {
+    margin-bottom: 1vw;
+    font-weight: bold;
+    font-size: 1vw;
+}
+
+.content-section {
+    max-width: inherit;
+    width: 31vw;
+    height: 49vw;;
+    background-image: url("assets/Background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.content-header-container {
+    position: relative;
+    width: 31vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1vw;
+}
+
+
+
+.content-type {
+    position: absolute;
+    font-size: 2vw;
+    margin-left: 1vw;
+    color: #fff;
+    z-index: 1;
+}
+
+
+.content-summary {
+    position: absolute;
+    font-size: 2vw;
+    margin-left: 1vw;
+    color: #fff;
+    z-index: 1;
+}
+
+#content-header-bookmark {
+    width: 8vw;
+}
+
+#content-bookmark {
+    width: 14vw;
+    margin-bottom: 1vw;
+}
+
+
+.content-header {
+    font-size: 1.5vw;
+    font-weight: normal;
+    color: #B21D43;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    padding-right: 25%;
+}
+
+.content-plan-image {
+    width: 25vw;
+    height: 22vw;
+}
+
+
+
+.table-container {
+    width: 31vw;
+    max-height: 14vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10vw;
+}
+
+  .th-header {
+    font-size: 1.2vw;
+    border: 0.15vw solid #B11D41;
+    padding: 0.5vw;
+    text-align: center;
+    background-color: #B11D41;
+    color: white;
+  }
+
+  .tr-header {
+    font-size: 1.1vw;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #B11D41;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 30vw;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+  }
+
+  th, td {
+    font-size: 1.1vw;
+    font-weight: bold;
+    border: 0.15vw solid #B11D41;
+    padding: 0.2vw;
+    text-align: center;
+  }
+
+  tr {
+    width: 1vw;
+  }
+
+
+
+
+
