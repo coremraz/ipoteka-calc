@@ -1,0 +1,203 @@
+<div class="calculator-container">
+<div class="calculator">
+        <form id="calculatorForm">
+        <label for="roomSelect">Количество комнат:</label>
+        <select id="roomSelect" onchange="displayRoomInfo()">
+            <option value="studio">Ст</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <!-- ... Добавьте нужное количество комнат -->
+        </select>
+
+        <!-- Добавление чекбокса "Евро" -->
+        <label for="euroCheckbox">Евро:</label>
+        <input type="checkbox" id="euroCheckbox" onchange="displayRoomInfo()">
+
+
+        <label for="floorPlanInput">Загрузите планировку квартиры:</label>
+        <input type="file" id="floorPlanInput" accept="image/*" onchange="displayFloorPlan()">
+            <label for="cost">Стоимость объекта, руб:</label>
+            <input type="number" id="cost" name="cost" required>
+
+            <br>
+
+            <label for="initialPayment">Первоначальный взнос, руб:</label>
+            <input type="number" id="initialPayment" name="initialPayment" required>
+
+            <br>
+
+            <label for="percentage">ПВ, %:</label>
+            <input type="text" id="percentage" name="percentage" readonly>
+
+            <br>
+
+            <label for="loanAmount">Сумма кредита, руб:</label>
+            <input type="text" id="loanAmount" name="loanAmount" readonly>
+
+            <br>
+
+            <label for="loanTermMonths">Срок кредита, месяцев:</label>
+            <input type="number" id="loanTermMonths" name="loanTermMonths" required>
+
+            <br>
+
+            <label for="loanTermYears">Срок кредита, лет:</label>
+            <input type="text" id="loanTermYears" name="loanTermYears" readonly>
+
+            <br>
+
+            <label for="interestRate">Процентная ставка, %:</label>
+            <input type="number" id="interestRate" name="interestRate" required>
+
+            <br>
+
+            <label for="monthlyPayment">Ежемесячный платеж, руб:</label>
+            <input type="text" id="monthlyPayment" name="monthlyPayment" readonly>
+
+            <br>
+
+        </form>
+
+<button id="updateGradientButton">Обновить фон</button>
+
+    </div>
+
+    <div class="result" id="resultContainer">
+        <p id="resultRoomInfo"></p>
+
+       <div id="resultImg"> <img id="resultImage" alt="Загрузите планировку квартиры"></div>
+
+        <p><span id="resultCost"></span> Р</p>
+        <p>Первоначальный взнос: <span id="resultInitialPayment"></span> руб</p>
+        <p>ПВ, %: <span id="resultPercentage"></span></p>
+        <p>Сумма кредита: <span id="resultLoanAmount"></span> руб</p>
+        <p>Срок кредита, месяцев: <span id="resultLoanTermMonths"></span> мес</p>
+        <p>Срок кредита, лет: <span id="resultLoanTermYears"></span> лет</p>
+        <p>Процентная ставка: <span id="resultInterestRate"></span> %</p>
+        <p class="MonthlyPayment">Ежемесячный платеж: <span id="resultMonthlyPayment"></span> руб</p>
+
+    </div>
+    </div>
+
+    <button onclick="downloadOffer()">Скачать оффер</button>
+
+
+   <script>
+
+
+   // Функция для установки размеров блока с результатами
+    function setResultsBlockSize(){var resultContainer = document.getElementById('resultContainer');
+        var windowHeight = window.innerHeight;
+
+        // Вычисляем высоту блока в пропорциях 9:16
+        var targetHeight = Math.floor(windowHeight);
+        var targetWidth = Math.floor(targetHeight * 9 / 16);
+
+        // Устанавливаем размеры блока
+        resultContainer.style.width = targetWidth + 'px';
+        resultContainer.style.height = targetHeight + 'px';}// Вызываем функцию при загрузке страницы и изменении размеров окна
+    window.addEventListener('load', setResultsBlockSize);
+    window.addEventListener('resize', setResultsBlockSize);
+
+
+
+       var resultContainer = document.getElementById('resultContainer');
+
+
+
+
+        function generateRandomGradient(){var colors =[];
+            for (var i = 0; i < 3; i++){var color = Math.floor(Math.random() * 256);
+                colors.push(color);}var randomColor1 = 'rgb(' + colors.join(',') + ')';
+            colors =[];
+            for (var i = 0; i < 3; i++){var color = Math.floor(Math.random() * 256);
+                colors.push(color);}var randomColor2 = 'rgb(' + colors.join(',') + ')';
+
+            return 'linear-gradient(45deg, ' + randomColor1 + ', ' + randomColor2 + ')';}function setRandomGradient(){var randomGradient = generateRandomGradient();
+            resultContainer.style.background = randomGradient;
+
+    function updateRandomGradient(){var randomGradient = generateRandomGradient();
+        resultContainer.style.background = randomGradient;}// Добавляем обработчик события click для кнопки "Обновить фон"
+    document.getElementById('updateGradientButton').addEventListener('click', updateRandomGradient);}// Вызываем функцию при загрузке страницы
+        window.addEventListener('load', setRandomGradient);
+
+        function displayRoomInfo(){var roomSelect = document.getElementById('roomSelect');
+            var euroCheckbox = document.getElementById('euroCheckbox');
+            var resultRoomInfo = document.getElementById('resultRoomInfo');
+
+            var roomCount = roomSelect.value;
+            var euroStatus = euroCheckbox.checked ? 'Евро ' : '';
+
+            resultRoomInfo.textContent = euroStatus + roomCount + '-комнатная квартира';}// Функция для получения текста информации о квартире
+    function getRoomInfoText(apartmentType){switch (apartmentType){case '1':
+                return '1-комнатная квартира';
+            case 'studio':
+                return 'Студия';
+              case '2':
+                return '2-комнатная квартира';
+              case '3':
+                return '3-комнатная квартира';
+              case '4':
+                return '4-комнатная квартира';
+            default:
+                return '';}}displayRoomInfo();
+
+       function displayFloorPlan(){var floorPlanInput = document.getElementById('floorPlanInput');
+            var resultImage = document.getElementById('resultImage');
+
+            if (floorPlanInput.files.length > 0){var imageUrl = URL.createObjectURL(floorPlanInput.files[0]);
+                resultImage.src = imageUrl;}}// Функция для отображения загруженной планировки квартиры
+        function displayFloorPlan(){var floorPlanInput = document.getElementById('floorPlanInput');
+            var resultImage = document.getElementById('resultImage');
+
+            if (floorPlanInput.files.length > 0){var imageUrl = URL.createObjectURL(floorPlanInput.files[0]);
+                resultImage.src = imageUrl;}}// Функция для скачивания блока .result-container как изображения в формате JPEG
+
+    function downloadOffer(){var resultContainer = document.getElementById('resultContainer');
+        html2canvas(resultContainer).then(function (canvas){var imageData = canvas.toDataURL('image/jpeg'); // Формат JPEG
+            var link = document.createElement('a');
+            link.href = imageData;
+            link.download = 'offer.jpg'; // Расширение файла
+            link.click();});}function calculatePercentage(){// Получаем значения из полей
+            var cost = parseFloat(document.getElementById('cost').value) || 0;
+            var initialPayment = parseFloat(document.getElementById('initialPayment').value) || 0;
+            var loanTermMonths = parseFloat(document.getElementById('loanTermMonths').value) || 0;
+            var interestRate = parseFloat(document.getElementById('interestRate').value) || 0;
+
+
+
+
+            // Вычисляем процент Первоначального взноса от Стоимости объекта
+            var percentage = (initialPayment / cost * 100).toFixed(2);
+
+            // Вычисляем сумму кредита
+            var loanAmount = (cost - initialPayment).toFixed(2);
+
+            // Вычисляем срок кредита в годах
+            var loanTermYears = (loanTermMonths / 12).toFixed(2);
+
+            // Вычисляем ежемесячный платеж
+            var monthlyInterestRate = interestRate / 100 / 12;
+            var monthlyPayment = ((loanAmount * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -loanTermMonths))).toFixed(2);
+
+            // Устанавливаем значения в результирующие элементы
+            document.getElementById('resultCost').innerText = cost;
+            document.getElementById('resultInitialPayment').innerText = initialPayment;
+            document.getElementById('resultPercentage').innerText = percentage;
+            document.getElementById('resultLoanAmount').innerText = loanAmount;
+            document.getElementById('resultLoanTermMonths').innerText = loanTermMonths;
+            document.getElementById('resultLoanTermYears').innerText = loanTermYears;
+            document.getElementById('resultInterestRate').innerText = interestRate;
+            document.getElementById('resultMonthlyPayment').innerText = monthlyPayment;
+
+            // Устанавливаем значения в поля "ПВ, %", "Сумма кредита", "Срок кредита, лет" и "Ежемесячный платеж"
+            document.getElementById('percentage').value = percentage;
+            document.getElementById('loanAmount').value = loanAmount;
+            document.getElementById('loanTermYears').value = loanTermYears;
+            document.getElementById('monthlyPayment').value = monthlyPayment;}// Добавляем обработчик события input
+        document.getElementById('calculatorForm').addEventListener('input', calculatePercentage);
+
+
+    </script>

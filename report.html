@@ -10,76 +10,80 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.3/html2canvas.min.js"></script>
-    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+        integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Документ</title>
 </head>
-<button onclick="captureElement('testId')">Скачать</button>
-<section class="main-section" id="testId">
+<button onclick="captureElement('cottage-info')">Скачать</button>
+<button onclick="downloadOffer()">Скачать оффер</button>
+<section class="cottage-section" id="cottage-info">
 
-    <header>
-        <div class="logo-section">
-            <img class="logo" src="/assets/Logo.svg">
+    <header class="cottage-header">
+        <div class="cottage-logo-section">
+            <img class="cottage-logo" src="/assets/pattern.svg">
         </div>
-        <section class="advantages-section">
-            <section class="advantage">
-                <h2 class="advantage-h2">Коммуникации</h2>
-                <ul class="header-ul">
-                    <li class="header-li">газ,</li>
-                    <li class="header-li">15 КВТ, 3 фазы,</li>
-                    <li class="header-li">Скважина с электрическим насосом (второй водоносный слой),</li>
-                    <li class="header-li">Двойной переливной септик 8 м3</li>
+        <div class="cottage-advantages-section">
+            <div class="cottage-advantage">
+                <h2 class="cottage-advantage-h2">Коммуникации</h2>
+                <ul class="cottage-header-ul">
+                    <li class="cottage-header-li">газ,</li>
+                    <li class="cottage-header-li">15 КВТ, 3 фазы,</li>
+                    <li class="cottage-header-li">Скважина с электрическим насосом (второй водоносный слой),</li>
+                    <li class="cottage-header-li">Двойной переливной септик 8 м3</li>
                 </ul>
-            </section>
-            <section class="advantage">
-                <h2 class="advantage-h2">Преимущества</h2>
-                <ul class="header-ul">
-                    <li class="header-li">Земельный участок для ИЖС,</li>
-                    <li class="header-li">6 соток,</li>
-                    <li class="header-li">городская прописка,</li>
-                    <li class="header-li">Современный парк,</li>
-                    <li class="header-li">Просторная терраса,</li>
-                    <li class="header-li">Широкие асфальтированные улицы</li>
-                </ul>
-            </section>
-            <section class="advantage">
-                <h2 class="advantage-h2">Технологии строительства</h2>
-                <ul class="header-ul">
-                    <li class="header-li">свайно-ростверковый фундамент,</li>
-                    <li class="header-li">керамический кирпич + утеплитель + газоблок,</li>
-                    <li class="header-li">Качественные ламинированные окна</li>
-                </ul>
-            </section>
-        </section>
-    </header>
-    <section class="content-section">
-        <div class="content-header-container">
-            <div class="content-header-bookmark-container">
-                <p class="content-type">тип 1</p>
-                <img id="content-header-bookmark" src="/assets/bookmark-up.svg">
             </div>
-            <h2 class="content-header">Коттедж S - 75 м²</h2>
+            <div class="cottage-advantage">
+                <h2 class="cottage-advantage-h2">Преимущества</h2>
+                <ul class="cottage-header-ul">
+                    <li class="cottage-header-li">Земельный участок для ИЖС,</li>
+                    <li class="cottage-header-li">6 соток,</li>
+                    <li class="cottage-header-li">городская прописка,</li>
+                    <li class="cottage-header-li">Современный парк,</li>
+                    <li class="cottage-header-li">Просторная терраса,</li>
+                    <li class="cottage-header-li">Широкие асфальтированные улицы</li>
+                </ul>
+            </div>
+            <div class="cottage-advantage">
+                <h2 class="cottage-advantage-h2">Технологии строительства</h2>
+                <ul class="cottage-header-ul">
+                    <li class="cottage-header-li">свайно-ростверковый фундамент,</li>
+                    <li class="cottage-header-li">керамический кирпич + утеплитель + газоблок,</li>
+                    <li class="cottage-header-li">Качественные ламинированные окна</li>
+                </ul>
+            </div>
         </div>
-        <img class="content-plan-image" src="/assets/plan.png">
-        <div class="table-container">
-            <div class="content-header-bookmark-container">
-                <p class="content-summary">8 200 000 ₽</p>
-                <img id="content-bookmark" src="/assets/bookmark.svg"></div>
+    </header>
+    <section class="cottage-content-section">
+        <div class="cottage-content-header-container">
+            <!-- <div class="cottage-content-header-bookmark-container">
+                <p class="cottage-content-type">тип 1</p>
+                <img id="cottage-content-header-bookmark" src="/assets/bookmark-up.svg">
+            </div> -->
+            <h2 class="cottage-content-header">Коттедж S - 75 м²</h2>
+        </div>
+        <img id="resultImage" class="cottage-content-plan-image" src="/assets/upload.png">
+        <div class="cottage-table-container">
+            <div class="cottage-content-header-bookmark-container">
+                <p id="resultCost" class="cottage-content-summary">0 ₽</p>
+                <img id="cottage-content-bookmark" src="/assets/bookmark.svg">
+            </div>
             <table>
                 <thead>
                     <tr>
-                        <th colspan="2" class="th-header">СЕМЕЙНАЯ ИПОТЕКА</th>
+                        <th colspan="2" class="cottage-th-header">СЕМЕЙНАЯ ИПОТЕКА</th>
                     </tr>
-                    <tr class="tr-header">
+                    <tr class="cottage-tr-header">
                         <th>ПЕРВОНАЧАЛЬНЫЙ ВЗНОС</th>
                         <th>ПЛАТЕЖ</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>1 000 000 ₽</td>
-                        <td>55 000 ₽</td>
+                        <td id="resultInitialPayment">Введите значение</td>
+                        <td id="resultMonthlyPayment">-</td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td>2 000 000 ₽</td>
                         <td>65 000 ₽</td>
                     </tr>
@@ -90,49 +94,281 @@
                     <tr>
                         <td>4 000 000 ₽</td>
                         <td>85 000 ₽</td>
-                    </tr>
+                    </tr> -->
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th colspan="2" class="th-header">ГОСПОДДЕРЖКА</th>
+                        <th colspan="2" class="cottage-th-header">ГОСПОДДЕРЖКА</th>
                     </tr>
                     <tr>
-                        <td>1 000 000 ₽</td>
-                        <td>55 000 ₽</td>
+                        <td id="creditSumGoverment">-</td>
+                        <td id="govermentMonthlyPayment">-</td>
                     </tr>
                 </tfoot>
             </table>
         </div>
 
-
     </section>
 </section>
 
+<form id="calculatorForm">
+    <label for="roomSelect">Количество комнат:</label>
+    <select id="roomSelect" onchange="displayRoomInfo()">
+        <option value="studio">Ст</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <!-- ... Добавьте нужное количество комнат -->
+    </select>
+
+    <!-- Добавление чекбокса "Евро" -->
+    <label for="euroCheckbox">Евро:</label>
+    <input type="checkbox" id="euroCheckbox" onchange="displayRoomInfo()">
+
+
+    <label for="floorPlanInput">Загрузите планировку квартиры:</label>
+    <input type="file" id="floorPlanInput" accept="image/*" onchange="displayFloorPlan()"> <br>
+    <label for="cost">Стоимость объекта, руб:</label>
+    <input type="number" id="cost" name="cost" required>
+
+    <br>
+
+    <label for="initialPayment">Первоначальный взнос, руб:</label>
+    <input type="number" id="initialPayment" name="initialPayment" required>
+
+    <br>
+
+    <label for="percentage">ПВ, %:</label>
+    <input type="text" id="percentage" name="percentage" readonly>
+
+    <br>
+
+    <label for="loanAmount">Сумма кредита, руб:</label>
+    <input type="text" id="loanAmount" name="loanAmount" readonly>
+
+    <br>
+
+    <label for="loanTermYears">Срок кредита, лет:</label>
+    <input type="text" id="loanTermYears" name="loanTermYears" required>
+
+    <br>
+
+    <label for="loanTermMonths">Срок кредита, месяцев:</label>
+    <input type="number" id="loanTermMonths" name="loanTermMonths" readonly>
+
+    <br>
+
+    <label for="interestRate">Процентная ставка, %:</label>
+    <input type="text" id="interestRate" name="interestRate" readonly>
+
+    <br>
+
+    <label for="monthlyPayment">Ежемесячный платеж, руб:</label>
+    <input type="text" id="monthlyPayments" name="monthlyPayment" readonly>
+
+    <br>
+
+</form>
+
 </html>
-
 <script>
-    function captureElement(elementId) {
-        html2canvas(document.getElementById(elementId), {
-            useCORS: true,
-            allowTaint: true,
-            logging: false,
-            letterRendering: true,
-            imageTimeout: 0
-        })
-            .then(canvas => {
-                // Convert the canvas to a JPG image
-                const imageUrl = canvas.toDataURL('image/jpeg', 1.0);
 
-                // Create a link element that downloads the image
-                const link = document.createElement('a');
-                link.href = imageUrl;
-                link.download = 'screenshot.jpg';
-
-                // Click the link to download the image
-                link.click();
-            })
-            .catch(error => {
-                console.error(error);
-            });
+    function pmt(ratePerPeriod, numberOfPayments, presentValue, futureValue, type) {
+        futureValue = typeof futureValue !== 'undefined' ? futureValue : 0;
+        type = typeof type !== 'undefined' ? type : 0;
+        if (ratePerPeriod != 0.0) {
+            var q = Math.pow(1 + ratePerPeriod, numberOfPayments);
+            return -(ratePerPeriod * (futureValue + (q * presentValue))) / ((-1 + q) * (1 + ratePerPeriod * (type)));
+        } else if (numberOfPayments != 0.0) {
+            return -(futureValue + presentValue) / numberOfPayments;
+        }
+        return 0;
     }
+    function calculateMonthlyPayment(loanAmount, baseRate, govermentRate, creditSumGoverment, loanTermMonths) {
+
+        let baseMonthlyPayment = pmt(baseRate / 12 * 0.01, loanTermMonths, loanAmount - creditSumGoverment, 0, 0); // Платеж по базовой ставке
+        let govermentMonthlyPayment = pmt(govermentRate / 12 * 0.01, loanTermMonths, creditSumGoverment, 0, 0); // Платеж по ставке ГП
+        let result = { "monthlyPayment": Math.round(Math.abs(baseMonthlyPayment + govermentMonthlyPayment)), "govermentMonthlyPayment": Math.round(Math.abs(govermentMonthlyPayment)) }
+        return result
+
+    }
+    function calculateRate(loanTermMonths, monthlyPayment, loanAmount, fv = 0, type = 0) {
+
+        // Используем метод половинного деления для поиска корня уравнения
+
+        let low = 0.0000001;  // Нижняя граница процентной ставки
+        let high = 100;  // Верхняя граница процентной ставки
+        let tolerance = 0.0000001;  // Допустимая погрешность
+
+        while (high - low > tolerance) {
+            let mid = (low + high) / 2;
+            let x = monthlyPayment * (1 - Math.pow(1 + mid, -loanTermMonths)) / mid + fv / Math.pow(1 + mid, loanTermMonths);
+
+            if (x < loanAmount) {
+                low = mid;
+            } else {
+                high = mid;
+            }
+        }
+
+        return (low + high) / 2 * 1200;  // Преобразуем в годовую процентную ставку
+    }
+    function updateDisplay(initialPayment, monthlyPayment, creditSum, creditSumGoverment, averageRate, loanTermMonths) {
+        document.getElementById('resultInitialPayment').innerText = (initialPayment.toLocaleString() + " ₽");
+        console.log(monthlyPayment['monthlyPayment']);
+
+        document.getElementById('resultCost').innerText = (creditSum.toLocaleString() + " ₽");
+        document.getElementById('creditSumGoverment').innerText = (creditSumGoverment.toLocaleString() + " ₽");
+        // document.getElementById('govermentMonthlyPayment').innerText = (monthlyPayment["govermentMonthlyPayment"].toLocaleString() + " ₽");
+
+    }
+    function findLoanAmount(creditSum, initialPayment) {
+        // Вычисляем сумму кредита
+        let loanAmount = (creditSum - initialPayment).toFixed(3);
+        let initialPercent = ((initialPayment / creditSum) * 100).toFixed(2);
+        let result = { "loanAmount": loanAmount, "initialPercent": initialPercent }
+
+        return result
+    }
+    function downloadOffer() {
+        var resultContainer = document.getElementById('cottage-info');
+        html2canvas(resultContainer).then(function (canvas) {
+            var imageData = canvas.toDataURL('image/jpeg'); // Формат JPEG
+            var link = document.createElement('a');
+            link.href = imageData;
+            link.download = 'offer.jpg'; // Расширение файла
+            link.click();
+        });
+    }
+    function updateCalculator() {
+
+        let creditSum = parseFloat(document.getElementById('cost').value) || 0; // Сумма кредита
+        let initialPayment = parseFloat(document.getElementById('initialPayment').value) || 0; // Первоначальный взнос
+        let loanTerm = parseFloat(document.getElementById('loanTermYears').value) || 0; // Срок кредита в годах
+        let loanAmount = 0;
+        let loanTermMonths = 0;
+        let baseRate = 18.7; // Базовая ставка
+        let govermentRate = 5.99; // Ставка по ГП
+        let creditSumGoverment = 6000000; // Сумма кредита по ГП
+        let monthlyPayment = 0;
+        let averageRate;
+
+        function updateDisplay(initialPayment, monthlyPayment, creditSum, creditSumGoverment, averageRate, loanTermMonths) {
+
+            document.getElementById('resultInitialPayment').innerText = (initialPayment.toLocaleString() + " ₽");
+            document.getElementById('resultCost').innerText = (creditSum.toLocaleString() + " ₽");
+            document.getElementById('creditSumGoverment').innerText = (creditSumGoverment.toLocaleString() + " ₽");
+            if (monthlyPayment != 0) {
+                document.getElementById('resultMonthlyPayment').innerText = monthlyPayment['monthlyPayment'].toLocaleString() + " ₽";
+                document.getElementById('govermentMonthlyPayment').innerText = monthlyPayment["govermentMonthlyPayment"].toLocaleString() + " ₽";
+            }
+
+        }
+
+        if (creditSum > 0 && initialPayment > 0) {
+            loanAmount = findLoanAmount(creditSum, initialPayment)['loanAmount'];
+            document.getElementById('loanAmount').value = Math.trunc(findLoanAmount(creditSum, initialPayment)['loanAmount']);
+            document.getElementById('percentage').value = findLoanAmount(creditSum, initialPayment)['initialPercent'];
+
+        }
+
+        if (loanTerm > 0) {
+            // Вычисляем срок кредита в месяцах
+            loanTermMonths = ((loanTerm * 12) + 1);
+            document.getElementById('loanTermMonths').value = loanTermMonths;
+        }
+
+        if (creditSum > 0 && loanTerm > 0 && initialPayment > 0) {
+            monthlyPayment = calculateMonthlyPayment(-loanAmount, baseRate, govermentRate, -creditSumGoverment, loanTermMonths); // ПЛАТЕЖ
+            document.getElementById('monthlyPayments').value = monthlyPayment['monthlyPayment'];
+
+
+            if (monthlyPayment != 0) {
+                averageRate = calculateRate(loanTermMonths, -monthlyPayment['monthlyPayment'], -loanAmount, 0, 0) //Средняя ставка
+                document.getElementById('interestRate').value = averageRate.toFixed(2) + '%';
+            }
+        }
+
+        updateDisplay(initialPayment, monthlyPayment, creditSum, creditSumGoverment, averageRate, loanTermMonths);
+
+    }
+
+    document.getElementById('calculatorForm').addEventListener('input', updateCalculator);
+
+
+    // Функция для установки размеров блока с результатами
+    function setResultsBlockSize() {
+        var resultContainer = document.getElementById('resultContainer');
+        var windowHeight = window.innerHeight;
+
+        // Вычисляем высоту блока в пропорциях 9:16
+        var targetHeight = Math.floor(windowHeight);
+        var targetWidth = Math.floor(targetHeight * 9 / 16);
+
+        // Устанавливаем размеры блока
+        resultContainer.style.width = targetWidth + 'px';
+        resultContainer.style.height = targetHeight + 'px';
+    }// Вызываем функцию при загрузке страницы и изменении размеров окна
+    window.addEventListener('load', setResultsBlockSize);
+    window.addEventListener('resize', setResultsBlockSize);
+
+
+
+    var resultContainer = document.getElementById('cottage-info');
+
+
+    function displayRoomInfo() {
+        var roomSelect = document.getElementById('roomSelect');
+        var euroCheckbox = document.getElementById('euroCheckbox');
+        var resultRoomInfo = document.getElementById('resultRoomInfo');
+
+        var roomCount = roomSelect.value;
+        var euroStatus = euroCheckbox.checked ? 'Евро ' : '';
+
+        resultRoomInfo.textContent = euroStatus + roomCount + '-комнатная квартира';
+    }
+
+    // Функция для получения текста информации о квартире
+    function getRoomInfoText(apartmentType) {
+        switch (apartmentType) {
+            case '1':
+                return '1-комнатная квартира';
+            case 'studio':
+                return 'Студия';
+            case '2':
+                return '2-комнатная квартира';
+            case '3':
+                return '3-комнатная квартира';
+            case '4':
+                return '4-комнатная квартира';
+            default:
+                return '';
+        }
+    } displayRoomInfo();
+
+    function displayFloorPlan() {
+        var floorPlanInput = document.getElementById('floorPlanInput');
+        var resultImage = document.getElementById('resultImage');
+
+        if (floorPlanInput.files.length > 0) {
+            var imageUrl = URL.createObjectURL(floorPlanInput.files[0]);
+            resultImage.src = imageUrl;
+        }
+    }
+
+    // Функция для отображения загруженной планировки квартиры
+    function displayFloorPlan() {
+        var floorPlanInput = document.getElementById('floorPlanInput');
+        var resultImage = document.getElementById('resultImage');
+
+        if (floorPlanInput.files.length > 0) {
+            var imageUrl = URL.createObjectURL(floorPlanInput.files[0]);
+            resultImage.src = imageUrl;
+        }
+    }
+
+
+
+
 </script>
